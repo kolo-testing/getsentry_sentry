@@ -32,7 +32,7 @@ describe('UptimeAlertDetails', function () {
     render(
       <UptimeAlertDetails
         {...routerProps}
-        params={{...routerProps.params, uptimeRuleId: '1'}}
+        params={{...routerProps.params, ruleId: '1'}}
       />,
       {organization}
     );
@@ -48,7 +48,7 @@ describe('UptimeAlertDetails', function () {
     render(
       <UptimeAlertDetails
         {...routerProps}
-        params={{...routerProps.params, uptimeRuleId: '2'}}
+        params={{...routerProps.params, ruleId: '2'}}
       />,
       {organization}
     );

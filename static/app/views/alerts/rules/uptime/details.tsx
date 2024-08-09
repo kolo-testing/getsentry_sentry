@@ -25,17 +25,17 @@ import type {UptimeRule} from 'sentry/views/alerts/rules/uptime/types';
 import {UptimeIssues} from './uptimeIssues';
 
 interface UptimeAlertDetailsProps
-  extends RouteComponentProps<{projectId: string; uptimeRuleId: string}, {}> {}
+  extends RouteComponentProps<{projectId: string; ruleId: string}, {}> {}
 
 export default function UptimeAlertDetails({params}: UptimeAlertDetailsProps) {
   const organization = useOrganization();
-  const {projectId, uptimeRuleId} = params;
+  const {projectId, ruleId} = params;
 
   const {projects, fetching: loadingProject} = useProjects({slugs: [projectId]});
   const project = projects.find(({slug}) => slug === projectId);
 
   const queryKey: ApiQueryKey = [
-    `/projects/${organization.slug}/${projectId}/uptime/${uptimeRuleId}/`,
+    `/projects/${organization.slug}/${projectId}/uptime/${ruleId}/`,
   ];
   const {
     data: uptimeRule,
@@ -97,7 +97,7 @@ export default function UptimeAlertDetails({params}: UptimeAlertDetailsProps) {
             <Button
               size="sm"
               icon={<IconEdit />}
-              to={`/organizations/${organization.slug}/alerts/uptime-rules/${project.slug}/${uptimeRuleId}/`}
+              to={`/organizations/${organization.slug}/alerts/uptime-rules/${project.slug}/${ruleId}/`}
             >
               {t('Edit Rule')}
             </Button>
@@ -110,7 +110,7 @@ export default function UptimeAlertDetails({params}: UptimeAlertDetailsProps) {
             <DatePageFilter />
             <EnvironmentPageFilter />
           </StyledPageFilterBar>
-          <UptimeIssues project={project} />
+          <UptimeIssues project={project} ruleId={ruleId} />
         </Layout.Main>
         <Layout.Side>
           <SectionHeading>{t('Uptime Alert Details')}</SectionHeading>
