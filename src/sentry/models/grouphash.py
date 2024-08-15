@@ -52,3 +52,15 @@ class GroupHash(Model):
             return self._metadata
         except AttributeError:
             return None
+
+    # def delete(self, *args, **kwargs):
+    #     # raise Exception("wtf")
+    #     print("\n\n********************\n\n")
+    #     print("\n\n********************\n\n")
+    #     print("\n\n********************\n\n")
+    #     print("\n\n********************\n\n")
+    #     breakpoint()
+    #     metadata = self.metadata
+    #     if metadata:
+    #         metadata.delete()
+    #     return super().delete(*args, **kwargs)

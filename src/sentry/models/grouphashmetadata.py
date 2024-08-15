@@ -24,4 +24,13 @@ class GroupHashMetadata(Model):
     def group_id(self) -> int | None:
         return self.grouphash.group_id
 
+    # def repr(self):
+    #     self.group_id = self.grouphash.group_id
+    #     return sane_repr("grouphash_id", "group_id")
+
     __repr__ = sane_repr("grouphash_id", "group_id")
+    # __repr__ = sane_repr("grouphash_id")
+
+    # def __repr__(self)-> str:
+    #     self.group_id = self.grouphash.group_id
+    #     default_repr = sane_repr("grouphash_id", "group_id")
