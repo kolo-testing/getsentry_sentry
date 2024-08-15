@@ -123,8 +123,6 @@ class ProjectMemberSerializer(serializers.Serializer):
         "performanceIssueCreationRate",
         "performanceIssueCreationThroughPlatform",
         "performanceIssueSendToPlatform",
-        "highlightContext",
-        "highlightTags",
         "extrapolateMetrics",
         "uptimeAutodetection",
     ]
@@ -179,7 +177,7 @@ E.g. `{'user': ['id', 'email']}`""",
         help_text="""A list of strings with tag keys to highlight on this project's issues.
 E.g. `['release', 'environment']`""",
     )
-    # TODO: Add help_text to all the fields for public documentation
+    # TODO: Add help_text to all the fields for public documentation, then remove them from 'exclude_fields'
     team = serializers.RegexField(r"^[a-z0-9_\-]+$", max_length=50)
     digestsMinDelay = serializers.IntegerField(min_value=60, max_value=3600)
     digestsMaxDelay = serializers.IntegerField(min_value=60, max_value=3600)
