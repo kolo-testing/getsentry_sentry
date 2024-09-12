@@ -1,5 +1,5 @@
 ---
-created: '2024-09-11T23:30:42.760239+00:00'
+created: '2024-09-13T18:54:42.196428+00:00'
 creator: sentry
 source: tests/sentry/backup/test_comparators.py
 ---
@@ -148,18 +148,21 @@ source: tests/sentry/backup/test_comparators.py
     - date_added
   - class: ForeignKeyComparator
     fields:
+    - organization_id
     - owner
   model_name: sentry.apiapplication
 - comparators:
   - class: ForeignKeyComparator
     fields:
     - application
+    - organization_id
     - user
   model_name: sentry.apiauthorization
 - comparators:
   - class: ForeignKeyComparator
     fields:
     - application
+    - organization_id
     - user
   model_name: sentry.apigrant
 - comparators:
@@ -187,6 +190,7 @@ source: tests/sentry/backup/test_comparators.py
   - class: ForeignKeyComparator
     fields:
     - application
+    - scoping_organization_id
     - user
   model_name: sentry.apitoken
 - comparators:
