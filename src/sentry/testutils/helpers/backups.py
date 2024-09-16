@@ -614,7 +614,13 @@ class ExhaustiveFixtures(Fixtures):
 
         self.create_data_source_detector(data_source, detector)
         self.create_workflow_action(workflow=workflow)
-        self.create_data_condition(detector=detector)
+        self.create_data_condition(
+            condition="test.condition",
+            threshold=2,
+            condition_result="true",
+            type="TEST",
+            detector=detector,
+        )
 
         return org
 
