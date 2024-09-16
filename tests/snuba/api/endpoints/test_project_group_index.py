@@ -1580,6 +1580,7 @@ class GroupDeleteTest(APITestCase, SnubaTestCase):
         assert response.status_code == 400
         self.assert_groups_not_deleted([group1, group2])
 
+        # We are allowed to delete the groups with the feature flag enabled
         with Feature({"organizations:issue-platform-deletion": True}), self.tasks():
             response = self.client.delete(url, format="json")
             assert response.status_code == 204
@@ -1623,6 +1624,7 @@ class GroupDeleteTest(APITestCase, SnubaTestCase):
         assert response.status_code == 400
         self.assert_groups_not_deleted(groups)
 
+        # We are allowed to delete the groups with the feature flag enabled
         with Feature({"organizations:issue-platform-deletion": True}), self.tasks():
             response = self.client.delete(url, format="json")
             assert response.status_code == 204

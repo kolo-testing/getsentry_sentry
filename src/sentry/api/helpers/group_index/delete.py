@@ -142,11 +142,11 @@ def delete_groups(
         return Response(status=204)
 
     org = Organization.objects.get_from_cache(id=organization_id)
-    issue_platform_deletion_allowed = not features.has(
+    issue_platform_deletion_allowed = features.has(
         "organizations:issue-platform-deletion", org, actor=request.user
     )
     non_error_group_found = any(group.issue_category != GroupCategory.ERROR for group in group_list)
-    if issue_platform_deletion_allowed and non_error_group_found:
+    if not issue_platform_deletion_allowed and non_error_group_found:
         raise rest_framework.exceptions.ValidationError(detail="Only error issues can be deleted.")
 
     groups_by_project_id = defaultdict(list)
