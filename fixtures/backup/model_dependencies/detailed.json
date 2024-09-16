@@ -6197,6 +6197,29 @@
       ]
     ]
   },
+  "workflow_engine.datacondition": {
+    "dangling": true,
+    "foreign_keys": {
+      "detector": {
+        "kind": "DefaultForeignKey",
+        "model": "workflow_engine.detector",
+        "nullable": true
+      },
+      "workflow_action": {
+        "kind": "DefaultForeignKey",
+        "model": "workflow_engine.workflowaction",
+        "nullable": true
+      }
+    },
+    "model": "workflow_engine.datacondition",
+    "relocation_dependencies": [],
+    "relocation_scope": "Organization",
+    "silos": [
+      "Region"
+    ],
+    "table_name": "workflow_engine_datacondition",
+    "uniques": []
+  },
   "workflow_engine.datasource": {
     "dangling": false,
     "foreign_keys": {

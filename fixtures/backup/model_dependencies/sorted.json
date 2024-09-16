@@ -54,6 +54,7 @@
   "workflow_engine.workflow",
   "workflow_engine.workflowaction",
   "workflow_engine.datasourcedetector",
+  "workflow_engine.datacondition",
   "sentry.savedsearch",
   "sentry.relocation",
   "sentry.recentsearch",
