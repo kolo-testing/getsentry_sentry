@@ -1,5 +1,5 @@
 import {initializeOrg} from 'sentry-test/initializeOrg';
-import {render, screen, userEvent, waitFor} from 'sentry-test/reactTestingLibrary';
+import {render, screen, userEvent} from 'sentry-test/reactTestingLibrary';
 
 import {
   makeClosableHeader,
@@ -76,5 +76,6 @@ describe('Framework suggestion modal', function () {
     await waitFor(() => {
       expect(closeModal).toHaveBeenCalled();
     });
+
   });
 });

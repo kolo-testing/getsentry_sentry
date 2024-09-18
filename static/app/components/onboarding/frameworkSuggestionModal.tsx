@@ -209,15 +209,7 @@ export function FrameworkSuggestionModal({
     );
 
     onConfigure(selectedFramework);
-    closeModal();
-  }, [
-    selectedPlatform,
-    selectedFramework,
-    organization,
-    onConfigure,
-    closeModal,
-    newOrg,
-  ]);
+  }, [selectedPlatform, selectedFramework, organization, onConfigure, newOrg]);
 
   const handleSkip = useCallback(() => {
     trackAnalytics(
@@ -230,23 +222,14 @@ export function FrameworkSuggestionModal({
       }
     );
     onSkip();
-    closeModal();
-  }, [selectedPlatform, organization, closeModal, onSkip, newOrg]);
-
-  const handleClose = useCallback(() => {
-    trackAnalytics('project_creation.select_framework_modal_close_button_clicked', {
-      platform: selectedPlatform.key,
-      organization,
-    });
-    closeModal();
-  }, [selectedPlatform, organization, closeModal]);
+  }, [selectedPlatform, organization, onSkip, newOrg]);
 
   const listEntries = [...topFrameworksOrdered, ...otherFrameworksSortedAlphabetically];
 
   return (
     <Fragment>
       <Header>
-        <CloseButton onClick={handleClose} />
+        <CloseButton onClick={closeModal} />
       </Header>
       <Body>
         <TopFrameworksImage frameworks={listEntries} />
